@@ -1,0 +1,23 @@
+# 远川物流干线查单与异常响应智能体 · 阶段1配置
+# 模型地址与密钥只从环境变量读取，本文件仅保存环境变量名。
+app:
+  name: 远川物流干线查单与异常响应智能体
+  stage: 1
+  env: dev
+
+server:
+  host: 127.0.0.1
+  port: 8000
+
+health:
+  path: /health
+
+model:
+  base_url_env: YUANCHUAN_MODEL_BASE_URL
+  api_key_env: YUANCHUAN_MODEL_API_KEY
+
+# 来源为访谈证据的默认值；口径未获业务确认前只用于采集，不作为验收判定。
+evidence_defaults:
+  gps_refresh_seconds: 300
+  receipt_upload_max_latency_hours: 24
+  audit_retention_days: 90
